@@ -13,10 +13,12 @@ This document tracks recent changes, current context, and next steps for the Dev
 - Verified locally: static file 200s for all assets, HTML tag balance and anchor-target check, `node --check` on `script.js`, and Playwright screenshots at 375px/768px/1280px plus a driven pass (scroll-reveal, scrollspy active state, mobile menu open/close) with zero console errors.
 - Merged `feature/latent-design-port` into `main` (fast-forward); feature branch deleted.
 - Replaced the plain-text "Claude / Cursor / Antigravity" tags in the AI-Assisted Dev stack card with the real logos (`assets/claude-icon.png`, `assets/cursor-app-icon.png`, `assets/google-antigravity-logo-icon.png`), sized at 40px to match the other stack cards' icon rows, unlabeled.
+- Filled in the wiggy project card with real content pulled from its (private) repo README: renamed to "Mr. Wiggy", added the real Spring Boot + Electron description and tags, used `assets/wiggy.png` (the pixel-art companion character) as its thumbnail, and swapped the GitHub link for a "Private repo, not yet public" note since the repo isn't public.
+- Turned the Projects section into a drag-to-scroll carousel (`.carousel-outer`/`.carousel-track` in `styles.css`, `initProjectsCarousel()` in `script.js`): prev/next nav buttons, mouse drag with momentum, touch swipe, native keyboard arrow-key scrolling (`tabindex="0"` + `role="region"` on the track), and edge fade gradients. Dropped the old stacked-backing-card effect in favor of a top accent-glow edge line, a cursor-following radial shine, and per-card accent-tinted tag pills, cycling through the cyan/violet brand palette across cards. Momentum drag-fling is skipped under `prefers-reduced-motion`; the drag/nav/keyboard interactions themselves still work.
 
 ## Next Steps
 - Push a version tag (e.g. `git tag v1.1.0 && git push origin v1.1.0`) to trigger the GitHub Actions deployment.
 - Add a real portrait photo into the hero circular slot (currently initials "AN" as a placeholder, per plan open item).
 - Confirm the exact start date for the "System Development Student" timeline entry (currently labeled "Recent").
-- Fill in the `wiggy` project description once available.
-- Perform a manual pass on a real device/browser for final polish (the local verification above used headless Chromium).
+- Make the `wiggy` repo public if/when it's ready, then re-add its "Code on GitHub" link and swap the thumbnail for a real app screenshot.
+- Perform a manual pass on a real device/browser for final polish, including the new carousel's drag/momentum feel (the local verification above used headless Chromium).
