@@ -1021,6 +1021,26 @@ img {
   padding: 22px;
 }
 
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18%;
+  right: 18%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--c-accent, var(--color-accent-primary)), transparent);
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-standard);
+}
+
+.timeline-item:hover::after {
+  opacity: 1;
+}
+
+.timeline-item:nth-of-type(3n+1) { --c-accent: var(--color-accent-primary); }
+.timeline-item:nth-of-type(3n+2) { --c-accent: var(--color-accent-secondary); }
+.timeline-item:nth-of-type(3n+3) { --c-accent: color-mix(in srgb, var(--color-accent-primary) 50%, var(--color-accent-secondary) 50%); }
+
 .timeline-period {
   font-family: var(--font-mono);
   font-size: var(--text-caption);
