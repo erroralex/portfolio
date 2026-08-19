@@ -187,123 +187,113 @@
           <h2 class="section-title">The Latent Suite</h2>
           <p class="section-desc">Four local-first tools for the AI image generation workflow: organize models, prep training data, browse generations, and inspect metadata. Everything runs on your machine. Nothing leaves it.</p>
         </div>
+      </div>
 
-        <div class="projects-grid">
+      <div class="carousel-outer">
+        <button type="button" class="carousel-nav prev" id="projects-prev" aria-label="Scroll projects left">←</button>
+        <button type="button" class="carousel-nav next" id="projects-next" aria-label="Scroll projects right">→</button>
 
-          <div class="project-stack">
-            <div class="project-backing"></div>
-            <article class="card project-card" data-tilt-card>
-              <div class="project-thumb">
-                <img src="https://raw.githubusercontent.com/erroralex/Latent-Library/main/frontend/src/assets/screenshots/hero.jpg" alt="Latent Library screenshot" loading="lazy">
-              </div>
-              <div class="project-body">
-                <div class="project-meta">
-                  <span class="project-kind">Desktop App</span>
-                  <span class="project-tech">Vue + Electron</span>
-                </div>
-                <h3>Latent Library</h3>
-                <p>Search, tag, and de-duplicate your AI generations without touching the cloud. Full-text SQLite search, ComfyUI graph parsing, visual duplicate detection, and offline AI auto-tagging, all running locally.</p>
-                <div class="tag-row">
-                  <span class="tag">Vue</span>
-                  <span class="tag">Electron</span>
-                  <span class="tag">SQLite</span>
-                </div>
-                <a href="https://github.com/erroralex/Latent-Library" target="_blank" rel="noopener noreferrer" class="project-link">Code on GitHub ↗</a>
-              </div>
-            </article>
-          </div>
+        <div class="carousel-track" id="projects-track" tabindex="0" role="region" aria-label="Project carousel, scrollable">
 
-          <div class="project-stack">
-            <div class="project-backing"></div>
-            <article class="card project-card" data-tilt-card>
-              <div class="project-thumb">
-                <img src="https://raw.githubusercontent.com/erroralex/Latent-Model-Organizer/main/frontend/src/assets/screenshots/Sorter.png" alt="Latent Model Organizer screenshot" loading="lazy">
+          <article class="project-card" data-tilt-card>
+            <div class="project-thumb">
+              <img src="https://raw.githubusercontent.com/erroralex/Latent-Library/main/frontend/src/assets/screenshots/hero.jpg" alt="Latent Library screenshot" loading="lazy">
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-kind">Desktop App</span>
+                <span class="project-tech">Vue + Electron</span>
               </div>
-              <div class="project-body">
-                <div class="project-meta">
-                  <span class="project-kind">Desktop App</span>
-                  <span class="project-tech">Vue + Electron</span>
-                </div>
-                <h3>Latent Model Organizer</h3>
-                <p>Stop hand-sorting hundreds of checkpoints and LoRAs. Automatically sorts your model library by architecture using zero-copy .safetensors header parsing, and fetches Civitai metadata for everything it finds.</p>
-                <div class="tag-row">
-                  <span class="tag">Vue</span>
-                  <span class="tag">Electron</span>
-                  <span class="tag">.safetensors</span>
-                </div>
-                <a href="https://github.com/erroralex/Latent-Model-Organizer" target="_blank" rel="noopener noreferrer" class="project-link">Code on GitHub ↗</a>
+              <h3>Latent Library</h3>
+              <p>Search, tag, and de-duplicate your AI generations without touching the cloud. Full-text SQLite search, ComfyUI graph parsing, visual duplicate detection, and offline AI auto-tagging, all running locally.</p>
+              <div class="tag-row">
+                <span class="tag">Vue</span>
+                <span class="tag">Electron</span>
+                <span class="tag">SQLite</span>
               </div>
-            </article>
-          </div>
+              <a href="https://github.com/erroralex/Latent-Library" target="_blank" rel="noopener noreferrer" class="project-link">Code on GitHub ↗</a>
+            </div>
+          </article>
 
-          <div class="project-stack">
-            <div class="project-backing"></div>
-            <article class="card project-card" data-tilt-card>
-              <div class="project-thumb">
-                <img src="https://raw.githubusercontent.com/erroralex/Latent-Tools/main/assets/bulk.png" alt="Latent Tools screenshot" loading="lazy">
+          <article class="project-card" data-tilt-card>
+            <div class="project-thumb">
+              <img src="https://raw.githubusercontent.com/erroralex/Latent-Model-Organizer/main/frontend/src/assets/screenshots/Sorter.png" alt="Latent Model Organizer screenshot" loading="lazy">
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-kind">Desktop App</span>
+                <span class="project-tech">Vue + Electron</span>
               </div>
-              <div class="project-body">
-                <div class="project-meta">
-                  <span class="project-kind">Desktop App</span>
-                  <span class="project-tech">Electron</span>
-                </div>
-                <h3>Latent Tools</h3>
-                <p>Turn a folder of raw images into a training-ready dataset. AI watermark removal (Florence-2 + LaMa), multi-format export, and image captioning (Qwen2-VL), all on your own GPU. No uploads, no API keys, no content filters.</p>
-                <div class="tag-row">
-                  <span class="tag">Electron</span>
-                  <span class="tag">Python</span>
-                  <span class="tag">PyTorch</span>
-                </div>
-                <a href="https://github.com/erroralex/Latent-Tools" target="_blank" rel="noopener noreferrer" class="project-link">Code on GitHub ↗</a>
+              <h3>Latent Model Organizer</h3>
+              <p>Stop hand-sorting hundreds of checkpoints and LoRAs. Automatically sorts your model library by architecture using zero-copy .safetensors header parsing, and fetches Civitai metadata for everything it finds.</p>
+              <div class="tag-row">
+                <span class="tag">Vue</span>
+                <span class="tag">Electron</span>
+                <span class="tag">.safetensors</span>
               </div>
-            </article>
-          </div>
+              <a href="https://github.com/erroralex/Latent-Model-Organizer" target="_blank" rel="noopener noreferrer" class="project-link">Code on GitHub ↗</a>
+            </div>
+          </article>
 
-          <div class="project-stack">
-            <div class="project-backing"></div>
-            <article class="card project-card" data-tilt-card>
-              <div class="project-thumb">
-                <img src="https://raw.githubusercontent.com/erroralex/Metadata-Viewer/main/src/main/resources/screenshots/viewer.png" alt="Metadata Viewer screenshot" loading="lazy">
+          <article class="project-card" data-tilt-card>
+            <div class="project-thumb">
+              <img src="https://raw.githubusercontent.com/erroralex/Latent-Tools/main/assets/bulk.png" alt="Latent Tools screenshot" loading="lazy">
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-kind">Desktop App</span>
+                <span class="project-tech">Electron</span>
               </div>
-              <div class="project-body">
-                <div class="project-meta">
-                  <span class="project-kind">Desktop App</span>
-                  <span class="project-tech">JavaFX</span>
-                </div>
-                <h3>Metadata Viewer</h3>
-                <p>The fast, no-frills companion for pulling generation metadata out of locally generated AI images. Recursive parsing across multiple platforms, JSON persistence, and the Latent dark theme, in a JavaFX app that does one thing well.</p>
-                <div class="tag-row">
-                  <span class="tag">Java</span>
-                  <span class="tag">JavaFX</span>
-                </div>
-                <a href="https://github.com/erroralex/Metadata-Viewer" target="_blank" rel="noopener noreferrer" class="project-link">Code on GitHub ↗</a>
+              <h3>Latent Tools</h3>
+              <p>Turn a folder of raw images into a training-ready dataset. AI watermark removal (Florence-2 + LaMa), multi-format export, and image captioning (Qwen2-VL), all on your own GPU. No uploads, no API keys, no content filters.</p>
+              <div class="tag-row">
+                <span class="tag">Electron</span>
+                <span class="tag">Python</span>
+                <span class="tag">PyTorch</span>
               </div>
-            </article>
-          </div>
+              <a href="https://github.com/erroralex/Latent-Tools" target="_blank" rel="noopener noreferrer" class="project-link">Code on GitHub ↗</a>
+            </div>
+          </article>
 
-          <div class="project-stack">
-            <div class="project-backing"></div>
-            <article class="card project-card" data-tilt-card>
-              <div class="project-thumb project-thumb-wiggy">
-                <img src="assets/wiggy.png" alt="Mr. Wiggy pixel-art companion character" loading="lazy">
+          <article class="project-card" data-tilt-card>
+            <div class="project-thumb">
+              <img src="https://raw.githubusercontent.com/erroralex/Metadata-Viewer/main/src/main/resources/screenshots/viewer.png" alt="Metadata Viewer screenshot" loading="lazy">
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-kind">Desktop App</span>
+                <span class="project-tech">JavaFX</span>
               </div>
-              <div class="project-body">
-                <div class="project-meta">
-                  <span class="project-kind">In Progress</span>
-                  <span class="project-tech">Spring Boot + Electron</span>
-                </div>
-                <h3>Mr. Wiggy</h3>
-                <p>An always-on-top AI desktop companion that watches your active window and clipboard, proactively offers contextual tips, and answers questions using your choice of Claude, Gemini, OpenAI, or a fully local model via Ollama/LM Studio. Spring Boot REST API backend, Electron + TypeScript frontend.</p>
-                <div class="tag-row">
-                  <span class="tag">Java</span>
-                  <span class="tag">Spring Boot</span>
-                  <span class="tag">Electron</span>
-                  <span class="tag">TypeScript</span>
-                </div>
-                <span class="project-link project-link-muted">Private repo, not yet public</span>
+              <h3>Metadata Viewer</h3>
+              <p>The fast, no-frills companion for pulling generation metadata out of locally generated AI images. Recursive parsing across multiple platforms, JSON persistence, and the Latent dark theme, in a JavaFX app that does one thing well.</p>
+              <div class="tag-row">
+                <span class="tag">Java</span>
+                <span class="tag">JavaFX</span>
               </div>
-            </article>
-          </div>
+              <a href="https://github.com/erroralex/Metadata-Viewer" target="_blank" rel="noopener noreferrer" class="project-link">Code on GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card" data-tilt-card>
+            <div class="project-thumb project-thumb-wiggy">
+              <img src="assets/wiggy.png" alt="Mr. Wiggy pixel-art companion character" loading="lazy">
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-kind">In Progress</span>
+                <span class="project-tech">Spring Boot + Electron</span>
+              </div>
+              <h3>Mr. Wiggy</h3>
+              <p>An always-on-top AI desktop companion that watches your active window and clipboard, proactively offers contextual tips, and answers questions using your choice of Claude, Gemini, OpenAI, or a fully local model via Ollama/LM Studio. Spring Boot REST API backend, Electron + TypeScript frontend.</p>
+              <div class="tag-row">
+                <span class="tag">Java</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">Electron</span>
+                <span class="tag">TypeScript</span>
+              </div>
+              <span class="project-link project-link-muted">Private repo, not yet public</span>
+            </div>
+          </article>
 
         </div>
       </div>
