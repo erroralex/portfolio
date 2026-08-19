@@ -11,10 +11,11 @@ This document tracks recent changes, current context, and next steps for the Dev
 - Removed the old project filter buttons and contact form (not part of the new information architecture); Contact section is now simple GitHub/LinkedIn/Email link cards.
 - Added `assets/alx-logo.png` and `assets/Alexander-Nilsson-CV.pdf` (renamed from the originally supplied filenames for clean URLs) and wired them into the header brand mark, favicon, and CV download buttons.
 - Verified locally: static file 200s for all assets, HTML tag balance and anchor-target check, `node --check` on `script.js`, and Playwright screenshots at 375px/768px/1280px plus a driven pass (scroll-reveal, scrollspy active state, mobile menu open/close) with zero console errors.
-- Work is on branch `feature/latent-design-port`, not yet merged to `main`.
+- Merged `feature/latent-design-port` into `main` (fast-forward); feature branch deleted.
+- Replaced the plain-text "Claude / Cursor / Antigravity" tags in the AI-Assisted Dev stack card with the real logos (`assets/claude-icon.png`, `assets/cursor-app-icon.png`, `assets/google-antigravity-logo-icon.png`), sized at 40px to match the other stack cards' icon rows, unlabeled.
 
 ## Next Steps
-- Review the branch and merge to `main` when satisfied, then push a version tag (e.g. `git tag v1.1.0 && git push origin v1.1.0`) to trigger the GitHub Actions deployment.
+- Push a version tag (e.g. `git tag v1.1.0 && git push origin v1.1.0`) to trigger the GitHub Actions deployment.
 - Add a real portrait photo into the hero circular slot (currently initials "AN" as a placeholder, per plan open item).
 - Confirm the exact start date for the "System Development Student" timeline entry (currently labeled "Recent").
 - Fill in the `wiggy` project description once available.
