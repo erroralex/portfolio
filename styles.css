@@ -30,6 +30,7 @@
   --color-accent-secondary: #9B7EF5;
   --color-accent-primary-bg: rgba(79, 216, 208, 0.12);
   --gradient-brand: linear-gradient(135deg, #4FD8D0 0%, #9B7EF5 100%);
+  --gradient-brand-bright: linear-gradient(135deg, #79E6DF 0%, #B6A0FF 100%);
   --gradient-brand-text: linear-gradient(135deg, #4FD8D0 0%, #9B7EF5 100%);
 
   /* Radius */
@@ -286,15 +287,17 @@ img {
 .hero-cta-group .btn:nth-child(2) { --c-accent: var(--color-accent-secondary); }
 
 .btn-primary::after {
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.85), transparent);
+  background: linear-gradient(to right, transparent, var(--color-bg-canvas), transparent);
 }
 
 .btn-primary {
   background: var(--gradient-brand);
   color: var(--color-text-on-accent);
+  transition: transform var(--duration-fast) var(--ease-standard), background var(--duration-base) var(--ease-standard);
 }
 
 .btn-primary:hover {
+  background: var(--gradient-brand-bright);
   transform: translateY(-1px);
 }
 
