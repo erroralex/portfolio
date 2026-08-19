@@ -92,10 +92,10 @@
           </div>
         </div>
 
-        <div class="hero-visual" aria-hidden="true">
+        <div class="hero-visual">
           <div class="hero-portrait-backing"></div>
           <div class="hero-portrait">
-            <span class="hero-portrait-initials">AN</span>
+            <img src="assets/profile-photo.jpg" alt="" class="hero-portrait-photo">
           </div>
         </div>
       </div>
@@ -110,18 +110,30 @@
         </div>
 
         <div class="about-grid">
-          <div class="card about-card">
-            <h3 class="about-card-title">Crafting purposeful solutions</h3>
-            <p>System Development Student transitioning from the construction industry. I combine a strong work ethic with a passion for building clean, efficient software.</p>
-            <p>I build local-first, privacy-respecting desktop tools, the Latent Suite, while studying System Development in Umeå.</p>
+          <div class="card about-card about-json-card">
+            <div class="about-json-titlebar">
+              <span class="about-json-dot" aria-hidden="true"></span>
+              <span class="about-json-dot" aria-hidden="true"></span>
+              <span class="about-json-dot" aria-hidden="true"></span>
+              <h3 class="about-json-filename">about.json</h3>
+            </div>
+            <pre class="about-json-body"><code>{
+  <span class="json-key">"name"</span>: <span class="json-string">"Alexander Nilsson"</span>,
+  <span class="json-key">"location"</span>: <span class="json-string">"Umeå, Sweden"</span>,
+  <span class="json-key">"role"</span>: <span class="json-string">"System Development Student"</span>,
+  <span class="json-key">"background"</span>: <span class="json-string">"19+ years, construction industry"</span>,
+  <span class="json-key">"building"</span>: [<span class="json-string">"Latent Suite"</span>, <span class="json-string">"Lo-Fi AI"</span>, <span class="json-string">"Drop-in Brain"</span>, <span class="json-string">"Mr. Wiggy"</span>],
+  <span class="json-key">"focus"</span>: <span class="json-string">"Clean, efficient, privacy-conscious software"</span>,
+  <span class="json-key">"status"</span>: <span class="json-string">"Open to opportunities"</span>
+}</code></pre>
           </div>
 
           <div class="about-values">
             <div class="card value-item">
               <span class="value-tag">01</span>
               <div>
-                <h4>Local-first</h4>
-                <p>Everything I build runs on your machine, not someone else's server.</p>
+                <h4>Local-first by default</h4>
+                <p>Most of what I build defaults to running on your machine. Cloud AI is opt-in, never required.</p>
               </div>
             </div>
             <div class="card value-item">

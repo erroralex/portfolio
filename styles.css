@@ -581,21 +581,16 @@ img {
   width: 78%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
+  overflow: hidden;
   background: var(--color-surface-2);
-  border: 1px dashed var(--color-border-strong);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: 1px solid var(--color-border-default);
 }
 
-.hero-portrait-initials {
-  font-family: var(--font-mono);
-  font-size: clamp(32px, 6vw, 56px);
-  font-weight: var(--weight-bold);
-  background: var(--gradient-brand-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.hero-portrait-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.15) contrast(1.03);
 }
 
 /* ==========================================================================
@@ -618,21 +613,51 @@ img {
   padding: 32px;
 }
 
-.about-card-title {
-  font-size: var(--text-h3);
-  font-weight: var(--weight-bold);
-  margin-bottom: 14px;
+.about-json-card {
+  padding: 0;
+  overflow: hidden;
 }
 
-.about-card p {
+.about-json-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 16px 20px;
+  background: var(--color-surface-2);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.about-json-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-border-strong);
+}
+
+.about-json-filename {
+  margin-left: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-tertiary);
+}
+
+.about-json-body {
+  margin: 0;
+  padding: 24px 28px 28px;
+  font-family: var(--font-mono);
+  font-size: var(--text-body-sm);
+  line-height: 1.8;
   color: var(--color-text-secondary);
-  font-size: var(--text-body-lg);
-  line-height: var(--text-body-lg-lh);
-  margin-bottom: 14px;
+  overflow-x: auto;
 }
 
-.about-card p:last-child {
-  margin-bottom: 0;
+.about-json-body .json-key {
+  color: var(--color-accent-primary);
+}
+
+.about-json-body .json-string {
+  color: var(--color-accent-secondary);
 }
 
 .about-values {
