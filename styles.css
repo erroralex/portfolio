@@ -621,25 +621,52 @@ img {
 .about-json-titlebar {
   display: flex;
   align-items: center;
-  gap: 7px;
-  padding: 16px 20px;
+  justify-content: space-between;
+  height: 40px;
+  padding-left: 20px;
   background: var(--color-surface-2);
   border-bottom: 1px solid var(--color-border-default);
 }
 
-.about-json-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--color-border-strong);
-}
-
 .about-json-filename {
-  margin-left: 8px;
   font-family: var(--font-mono);
   font-size: var(--text-body-sm);
   font-weight: var(--weight-semibold);
   color: var(--color-text-tertiary);
+}
+
+.about-json-controls {
+  display: flex;
+  align-items: stretch;
+  align-self: stretch;
+}
+
+.about-json-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.about-json-control svg {
+  width: 10px;
+  height: 10px;
+  fill: none;
+  stroke: var(--color-text-secondary);
+  stroke-width: 1;
+}
+
+.about-json-control:hover {
+  background: var(--color-surface-3);
+}
+
+.about-json-control-close:hover {
+  background: #e81123;
+}
+
+.about-json-control-close:hover svg {
+  stroke: #ffffff;
 }
 
 .about-json-body {
