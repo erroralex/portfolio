@@ -759,7 +759,7 @@ img {
 }
 
 .project-thumb-icon img {
-  width: 56px;
+  width: auto;
   height: 56px;
   object-fit: contain;
 }
@@ -824,6 +824,12 @@ img {
 
 .project-link:hover {
   color: var(--color-accent-primary);
+}
+
+.project-link-muted {
+  color: var(--color-text-tertiary);
+  font-weight: var(--weight-semibold);
+  cursor: default;
 }
 
 /* ==========================================================================
