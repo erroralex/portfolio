@@ -8,9 +8,10 @@ This document tracks recent changes, current context, and next steps for the Dev
 - Configured AI assistant instructions following drop-in-brain standard (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.claude/settings.json`).
 - Installed `ai-setup-doctor`, `frontend-design`, and `web-design-guidelines` skills under `.agents/skills/` and linked via `.claude/skills` junction.
 - Created single-page application core files: `index.html`, `styles.css`, and `script.js`.
-- Pushed setup to `origin/main` and verified live deployment on GitHub Pages.
+- Configured GitHub Actions workflow (`.github/workflows/deploy.yml`) to deploy to GitHub Pages only on `v*` tag pushes or manual trigger.
 
 ## Next Steps
+- Push a tag (e.g. `git tag v1.0.0 && git push origin v1.0.0`) to trigger the initial GitHub Actions deployment.
 - Customize developer bio, real project showcases, repository links, and contact details.
 - Add personal favicon and custom Open Graph social preview meta tags if desired.
 - Perform ongoing cross-device responsiveness checks and accessibility audits.
