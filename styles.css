@@ -1047,46 +1047,6 @@ img {
 }
 
 /* ==========================================================================
-   GitHub Activity
-   ========================================================================== */
-
-.github-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  align-items: stretch;
-}
-
-.github-card {
-  display: flex;
-  flex: 1 1 300px;
-  min-height: 160px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 10px;
-  color: var(--color-text-primary);
-  text-decoration: none;
-  padding: 16px;
-}
-
-a.github-card:hover {
-  border-color: var(--color-border-strong);
-}
-
-.github-card span {
-  font-weight: var(--weight-semibold);
-  font-size: var(--text-body);
-}
-
-.github-langs-label {
-  font-size: var(--text-caption);
-  color: var(--color-text-secondary);
-  font-weight: var(--weight-semibold) !important;
-}
-
-/* ==========================================================================
    Contact
    ========================================================================== */
 
