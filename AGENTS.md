@@ -8,6 +8,7 @@
 - **Build:** None (Static SPA)
 - **Test:** Manual browser testing and HTML/CSS/JS syntax validation
 - **Run locally:** Local HTTP server (e.g. `npx serve .` or `python -m http.server 8000`)
+- **Deploy:** GitHub Pages via GitHub Actions triggered on `v*` tags (e.g. `git tag v1.0.0 && git push origin v1.0.0`) or manual workflow dispatch
 
 ## Workflow
 

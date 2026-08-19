@@ -5,7 +5,7 @@ This document tracks recent changes, current context, and next steps for the Dev
 
 ## Recent Changes
 - Initialized empty Git repository on `main` branch with remote origin `https://github.com/erroralex/portfolio.git`.
-- Configured AI assistant instructions following drop-in-brain standard (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.claude/settings.json`).
+- Configured AI assistant instructions with `AGENTS.md` as single source of truth and forward shims (`@AGENTS.md`) in `CLAUDE.md` and `GEMINI.md`.
 - Installed `ai-setup-doctor`, `frontend-design`, and `web-design-guidelines` skills under `.agents/skills/` and linked via `.claude/skills` junction.
 - Created single-page application core files: `index.html`, `styles.css`, and `script.js`.
 - Configured GitHub Actions workflow (`.github/workflows/deploy.yml`) to deploy to GitHub Pages only on `v*` tag pushes or manual trigger.
