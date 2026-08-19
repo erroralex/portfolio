@@ -733,6 +733,7 @@ img {
 
 .carousel-track {
   display: flex;
+  justify-content: safe center;
   gap: 24px;
   overflow-x: auto;
   overflow-y: visible;
