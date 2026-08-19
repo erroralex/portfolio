@@ -1,0 +1,17 @@
+# Kit folder
+drop-in-brain-main/
+
+# IDE & Editor
+.idea/
+.vscode/
+*.iml
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Temp & build scratch
+.tmp/
+
+# Local junction/symlink to .agents/skills (recreate per clone, see AGENTS.md)
+.claude/skills/
