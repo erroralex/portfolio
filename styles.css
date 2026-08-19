@@ -687,6 +687,33 @@ img {
   margin-bottom: 16px;
 }
 
+.ai-tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ai-tool-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  color: var(--color-text-secondary);
+  background: var(--color-surface-2);
+  padding: 6px 14px 6px 6px;
+  border-radius: var(--radius-full);
+}
+
+.ai-tool-badge img {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-sm);
+  background: var(--color-text-primary);
+  object-fit: contain;
+  padding: 2px;
+}
+
 /* ==========================================================================
    Projects
    ========================================================================== */
