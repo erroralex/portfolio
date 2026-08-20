@@ -173,15 +173,16 @@ function initTiltCards() {
       const rect = card.getBoundingClientRect();
       const px = (e.clientX - rect.left) / rect.width;
       const py = (e.clientY - rect.top) / rect.height;
-      const rotY = (px - 0.5) * TILT_MAX_DEG * 2;
-      const rotX = -(py - 0.5) * TILT_MAX_DEG * 2;
-      card.style.transform = `perspective(900px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) scale3d(1.03,1.03,1.03)`;
+      // Parallax tilt disabled; keeping the searchlight (--mx/--my) tracking active.
+      // const rotY = (px - 0.5) * TILT_MAX_DEG * 2;
+      // const rotX = -(py - 0.5) * TILT_MAX_DEG * 2;
+      // card.style.transform = `perspective(900px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) scale3d(1.03,1.03,1.03)`;
       card.style.setProperty('--mx', `${(px * 100).toFixed(1)}%`);
       card.style.setProperty('--my', `${(py * 100).toFixed(1)}%`);
     };
 
     const onLeave = () => {
-      card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+      // card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
     };
 
     card.addEventListener('mousemove', onMove);
