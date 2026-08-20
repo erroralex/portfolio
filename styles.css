@@ -22,7 +22,7 @@
   /* Color - text */
   --color-text-primary: #F5F5F7;
   --color-text-secondary: #A0A3AD;
-  --color-text-tertiary: #6B6E78;
+  --color-text-tertiary: #8A8D97;
   --color-text-on-accent: #0A0A0D;
 
   /* Color - accents */
@@ -361,20 +361,49 @@ img {
 }
 
 .nav-link {
+  position: relative;
+  overflow: hidden;
   display: inline-block;
   color: var(--color-text-secondary);
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
   padding: 8px 12px;
+  border: 1px solid var(--color-border-default);
   border-radius: var(--radius-md);
-  transition: color var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard);
+  transition: color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard);
+}
+
+.nav-link-text {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18%;
+  right: 18%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--c-accent, var(--color-accent-primary)), transparent);
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-standard);
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--color-accent-primary);
-  background: var(--color-accent-primary-bg);
+  color: var(--c-accent, var(--color-accent-primary));
+  border-color: var(--color-border-strong);
+}
+
+.nav-list li:nth-of-type(3n+1) .nav-link { --c-accent: var(--color-accent-primary); }
+.nav-list li:nth-of-type(3n+2) .nav-link { --c-accent: var(--color-accent-secondary); }
+.nav-list li:nth-of-type(3n+3) .nav-link { --c-accent: color-mix(in srgb, var(--color-accent-primary) 50%, var(--color-accent-secondary) 50%); }
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  opacity: 1;
 }
 
 .nav-actions {
@@ -443,8 +472,34 @@ img {
 .site-nav.is-open .nav-link {
   display: block;
   padding: 12px 4px;
+  border: none;
   border-bottom: 1px solid var(--color-border-subtle);
   border-radius: 0;
+}
+
+/* Row is full-width for tap area, but the glow should track the word, not
+   the row: turn off the row-wide glow and draw one on the text span
+   instead, offset up by the row's own padding-top so it still sits on
+   the row's top edge. */
+.site-nav.is-open .nav-link::after {
+  content: none;
+}
+
+.site-nav.is-open .nav-link-text::after {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--c-accent, var(--color-accent-primary)), transparent);
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-standard);
+}
+
+.site-nav.is-open .nav-link:hover .nav-link-text::after,
+.site-nav.is-open .nav-link.active .nav-link-text::after {
+  opacity: 1;
 }
 
 @media (min-width: 860px) {
@@ -458,9 +513,6 @@ img {
   }
   .site-nav .nav-list {
     flex-direction: row;
-  }
-  .site-nav .nav-link {
-    border-bottom: none;
   }
   .nav-cv-btn {
     display: inline-flex;

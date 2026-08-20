@@ -98,21 +98,39 @@ function initScrollSpy() {
   const navLinks = document.querySelectorAll('.nav-link');
   if (sections.length === 0 || navLinks.length === 0) return;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach((link) => {
-            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-          });
-        }
+  const header = document.querySelector('.site-header');
+
+  const setActiveLink = () => {
+    const offset = (header ? header.offsetHeight : 0) + 20;
+    const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+
+    let currentId = sections[0].getAttribute('id');
+    sections.forEach((section) => {
+      if (atBottom || section.getBoundingClientRect().top - offset <= 0) {
+        currentId = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
+    });
+  };
+
+  let ticking = false;
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setActiveLink();
+        ticking = false;
       });
     },
-    { rootMargin: '-10% 0px -60% 0px', threshold: 0.15 }
+    { passive: true }
   );
 
-  sections.forEach((section) => observer.observe(section));
+  setActiveLink();
 }
 
 /* ==========================================================================
