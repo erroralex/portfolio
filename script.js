@@ -13,19 +13,30 @@ const TILT_MAX_DEG = 10;
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  initMobileMenu();
-  initScrollSpy();
-  initFooterYear();
-  initProjectDownloads();
+  // Each init runs independently: a failure in one (e.g. a selector that
+  // doesn't match, an API that throws) must not stop the rest from running,
+  // since initScrollReveal is what keeps sections from staying invisible.
+  const run = (fn) => {
+    try {
+      fn();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  run(initMobileMenu);
+  run(initScrollSpy);
+  run(initFooterYear);
+  run(initProjectDownloads);
 
   if (prefersReducedMotion) {
     document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-visible'));
     const typedText = document.getElementById('typed-text');
     if (typedText) typedText.textContent = TAGLINES[0];
   } else {
-    initTypedTagline();
-    initScrollReveal();
-    initTiltCards();
+    run(initTypedTagline);
+    run(initScrollReveal);
+    run(initTiltCards);
   }
 });
 
@@ -75,6 +86,8 @@ function initScrollReveal() {
   const targets = document.querySelectorAll('[data-reveal]');
   if (targets.length === 0) return;
 
+  if (!('IntersectionObserver' in window)) return;
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -86,7 +99,10 @@ function initScrollReveal() {
     { threshold: 0.15 }
   );
 
-  targets.forEach((el) => observer.observe(el));
+  targets.forEach((el) => {
+    el.classList.add('reveal-armed');
+    observer.observe(el);
+  });
 }
 
 /* ==========================================================================
