@@ -1,6 +1,9 @@
 # Kit folder
 drop-in-brain-main/
 
+# GitHub profile README working copy (lives in erroralex/erroralex, not this repo)
+docs/
+
 # IDE & Editor
 .idea/
 .vscode/
