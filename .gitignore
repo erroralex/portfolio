@@ -15,3 +15,10 @@ Thumbs.db
 
 # Local junction/symlink to .agents/skills (recreate per clone, see AGENTS.md)
 .claude/skills/
+
+# AI assistant config/instructions (local-only, not shared via git)
+CLAUDE.md
+GEMINI.md
+.agents/
+.claude/
+.gemini/
