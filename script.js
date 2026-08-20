@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initScrollSpy();
   initFooterYear();
-  initProjectsCarousel(prefersReducedMotion);
+  initProjectDownloads();
 
   if (prefersReducedMotion) {
     document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-visible'));
@@ -172,81 +172,6 @@ function initTiltCards() {
 }
 
 /* ==========================================================================
-   Projects carousel: nav buttons + drag-to-scroll
-   ========================================================================== */
-
-function initProjectsCarousel(prefersReducedMotion) {
-  const track = document.getElementById('projects-track');
-  const prevBtn = document.getElementById('projects-prev');
-  const nextBtn = document.getElementById('projects-next');
-  if (!track) return;
-
-  const scrollByCard = (direction) => {
-    const card = track.querySelector('.project-card');
-    const amount = card ? card.getBoundingClientRect().width + 24 : 320;
-    track.scrollBy({ left: amount * direction, behavior: 'smooth' });
-  };
-
-  if (prevBtn) prevBtn.addEventListener('click', () => scrollByCard(-1));
-  if (nextBtn) nextBtn.addEventListener('click', () => scrollByCard(1));
-
-  let isDragging = false;
-  let startX = 0;
-  let startScrollLeft = 0;
-  let lastX = 0;
-  let velocityX = 0;
-  let momentumFrame = null;
-
-  track.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    track.style.scrollBehavior = 'auto';
-    startX = e.pageX;
-    startScrollLeft = track.scrollLeft;
-    lastX = e.pageX;
-    velocityX = 0;
-    cancelAnimationFrame(momentumFrame);
-  });
-
-  document.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    velocityX = e.pageX - lastX;
-    lastX = e.pageX;
-    track.scrollLeft = startScrollLeft - (e.pageX - startX);
-  });
-
-  document.addEventListener('mouseup', () => {
-    if (!isDragging) return;
-    isDragging = false;
-    track.style.scrollBehavior = '';
-
-    if (prefersReducedMotion) return;
-
-    let momentum = velocityX * 12;
-    const decelerate = () => {
-      momentum *= 0.92;
-      track.scrollLeft -= momentum;
-      if (Math.abs(momentum) > 0.5) {
-        momentumFrame = requestAnimationFrame(decelerate);
-      }
-    };
-    decelerate();
-  });
-
-  let touchStartX = 0;
-  let touchStartScrollLeft = 0;
-  track.addEventListener('touchstart', (e) => {
-    touchStartX = e.touches[0].clientX;
-    touchStartScrollLeft = track.scrollLeft;
-  }, { passive: true });
-
-  track.addEventListener('touchmove', (e) => {
-    const dx = touchStartX - e.touches[0].clientX;
-    track.scrollLeft = touchStartScrollLeft + dx;
-  }, { passive: true });
-}
-
-/* ==========================================================================
    Footer year
    ========================================================================== */
 
@@ -255,4 +180,33 @@ function initFooterYear() {
   if (yearElem) {
     yearElem.textContent = String(new Date().getFullYear());
   }
+}
+
+/* ==========================================================================
+   Project release download counts
+   ========================================================================== */
+
+function initProjectDownloads() {
+  const targets = document.querySelectorAll('.project-downloads[data-repo]');
+
+  targets.forEach(async (el) => {
+    const repo = el.dataset.repo;
+    try {
+      const response = await fetch(`https://api.github.com/repos/${repo}/releases`);
+      if (!response.ok) return;
+
+      const releases = await response.json();
+      const totalDownloads = releases.reduce((sum, release) => {
+        const assetDownloads = (release.assets || []).reduce((s, asset) => s + asset.download_count, 0);
+        return sum + assetDownloads;
+      }, 0);
+
+      if (totalDownloads > 0) {
+        el.textContent = `${totalDownloads.toLocaleString()} downloads`;
+        el.hidden = false;
+      }
+    } catch {
+      // Leave the counter hidden if the GitHub API is unreachable.
+    }
+  });
 }
