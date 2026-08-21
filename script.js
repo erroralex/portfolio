@@ -88,6 +88,11 @@ function initScrollReveal() {
 
   if (!('IntersectionObserver' in window)) return;
 
+  // threshold: 0 (not a ratio like 0.15) so reveal fires on first pixel of
+  // overlap. A ratio threshold requires that fraction of the *target's own
+  // area* to be visible at once, which a tall single-column section (e.g.
+  // #projects stacked on mobile) can exceed the viewport height enough to
+  // never satisfy, leaving it permanently opacity: 0.
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -96,7 +101,7 @@ function initScrollReveal() {
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0, rootMargin: '0px 0px -10% 0px' }
   );
 
   targets.forEach((el) => {
