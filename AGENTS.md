@@ -8,7 +8,10 @@
 - **Build:** None (Static SPA)
 - **Test:** Manual browser testing and HTML/CSS/JS syntax validation
 - **Run locally:** Local HTTP server (e.g. `npx serve .` or `python -m http.server 8000`)
-- **Deploy:** GitHub Pages via GitHub Actions triggered on `v*` tags (e.g. `git tag v1.0.0 && git push origin v1.0.0`) or manual workflow dispatch
+- **Deploy:** GitHub Pages via GitHub Actions triggered on `v*` tags (e.g. `git tag v1.0.0 && git push origin v1.0.0`) or manual workflow dispatch.
+  Tag numbers don't run in order, so check `git tag --sort=-v:refname | head -1` before picking the next one, and never move an existing tag.
+  If a deploy run fails, start a fresh run with `gh workflow run deploy.yml --ref <tag>` (or "Run workflow" in the Actions tab).
+  Don't re-run the failed job: that uploads a second `github-pages` artifact into the same run, and deploy-pages then fails on the duplicate.
 
 ## Workflow
 
